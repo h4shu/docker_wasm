@@ -1,0 +1,15 @@
+# docker-compose.yml
+version: '3.3'
+services:
+  web:
+    build: ./emsdk
+    image: emsdk-ubuntu16.04
+    container_name: emsdk-ubuntu16.04
+    working_dir: /src
+    ports:
+     - "8080:8080"
+    volumes:
+     - ./emsdk/src:/src
+    tty: true
+    command: bash -l -c "emrun --no_browser --hostname 0.0.0.0 --port 8080 ."
+
